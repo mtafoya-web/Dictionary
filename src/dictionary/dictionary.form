@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Dictionary.Dictionary">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="dictionary.dictionary">
   <grid id="27dc6" binding="app" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
       <xy x="20" y="20" width="1094" height="375"/>
@@ -369,7 +369,7 @@
                   </component>
                 </children>
               </grid>
-              <component id="9b81d" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+              <component id="9b81d" class="javax.swing.JTextField" binding="filter">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
