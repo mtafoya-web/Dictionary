@@ -27,37 +27,53 @@ scalable software design.
 
 ------------------------------------------------------------------------
 
-###  Search Word
+###  Search Word: 
+-    Finds the word placed in the search box to the bottom left.
+-    If a prefix is placed the word or words with that prefix will appear.
 ![Search Word](images/searchWordV2.png)
 
 ---
 
 ###  Add Word
+-    Will clear the textField to the right.
+-    Requires user to input information about the word.
+-    Requires the Save button to be pressed to update the dictionary.
 ![Add Word](images/addWordV2.png)
 
 ---
 
 ###  Delete Word
+-    Hover over the word you want to delete.
+-    press the delete button.
 ![Delete Word](images/deleteWordV2.png)
 
 ---
 
 ###  Import Dictionary
+-    Finds the file by opening up the user Filepath.
+-    Each line must contain exactly 5 fields seperated by |
+-    example: word|pronunciation|definition|example|syn1, syn2, syn3
+-    
 ![Import](images/importV2.png)
 
 ---
 
 ###  Top 5 Most Searched
+-    Displays the 5 most searched words in the dictionary
+-    A search counts as a top level search or click on the textField
 ![History](images/historyV2.png)
 
 ---
 
 ###  Exit Confirmation
+-    Displays and exit warning and confirmation.
 ![Exit](images/exitV2.png)
 
 ---
 
 ### 🕰 Version 1 (Original Prototype)
+-    The first version of this project
+-    File structured unorganized and not following object orientation
 ![Dictionary V1](images/DictionaryV1.png)
 ```
 
