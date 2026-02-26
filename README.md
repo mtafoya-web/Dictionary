@@ -27,17 +27,38 @@ scalable software design.
 
 ------------------------------------------------------------------------
 
-## Screenshots
+###  Search Word
+![Search Word](images/searchWordV2.png)
 
-> Add application screenshots here
+---
 
-    /screenshots/app-main.png
-    /screenshots/search-example.png
+###  Add Word
+![Add Word](images/addWordV2.png)
 
-Example:
+---
 
-``` markdown
-![Main UI](screenshots/app-main.png)
+###  Delete Word
+![Delete Word](images/deleteWordV2.png)
+
+---
+
+###  Import Dictionary
+![Import](images/importV2.png)
+
+---
+
+###  Top 5 Most Searched
+![History](images/historyV2.png)
+
+---
+
+###  Exit Confirmation
+![Exit](images/exitV2.png)
+
+---
+
+### 🕰 Version 1 (Original Prototype)
+![Dictionary V1](images/DictionaryV1.png)
 ```
 
 ------------------------------------------------------------------------
