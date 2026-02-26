@@ -106,7 +106,7 @@ public class dictionaryEntry {
     /**
      * Returns a defensive copy of the synonym list to protect immutability.
      *
-     * @return copy of synonyms (size <= 4)
+     * @return copy of synonyms (max size 4)
      */
     public List<String> getSyn() { return new ArrayList<>(syn); }
 }
