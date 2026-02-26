@@ -1,0 +1,11 @@
+ Hello0
+ 9
+ word_meaning0
+
+ Goodbye
+ 1
+ word_meaning1
+
+ Annoying
+ 2
+ word_meaning2
