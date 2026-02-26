@@ -26,19 +26,60 @@ scalable software design.
 -   Input validation and controlled UI editing state
 
 ------------------------------------------------------------------------
+### Version 1 (Original Prototype)
+-    Initial implementation
+-    Tightly coupled UI and logic
+-    Limited scalability
+![Dictionary V1](images/DictionaryV1.png)
 
-## Screenshots
+---
 
-> Add application screenshots here
+###  Search Word: 
+-    Finds the word entered in the search box
+-    Prefix-based filtering supported
+![Search Word](images/searchWordV2.png)
 
-    /screenshots/app-main.png
-    /screenshots/search-example.png
+---
 
-Example:
+###  Add Word
+-    Clears the detail fields
+-    Allows user input
+-    Requires Save button to persist
+![Add Word](images/addWordV2.png)
 
-``` markdown
-![Main UI](screenshots/app-main.png)
-```
+---
+
+###  Delete Word
+-    Select a word
+-    press the delete button.
+-    Confirmation dialog prevents accidental removal
+![Delete Word](images/deleteWordV2.png)
+
+---
+
+###  Import Dictionary
+-    Opens system file chooser
+-    Each line must contain exactly 5 fields separated by |
+-    example: word|pronunciation|definition|example|syn1, syn2, syn3
+-    
+![Import](images/importV2.png)
+
+---
+
+###  Top 5 Most Searched
+-    Displays five most frequently accessed words
+-    Counts both search queries and list selections
+![History](images/historyV2.png)
+
+---
+
+###  Exit Confirmation
+-    Prompts confirmation before closing.
+-    Prevents accidental termination
+![Exit](images/exitV2.png)
+
+---
+
 
 ------------------------------------------------------------------------
 
