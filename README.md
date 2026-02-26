@@ -14,6 +14,14 @@ scalable software design.
 
 ------------------------------------------------------------------------
 
+### 🕰 Version 1 (Original Prototype)
+-    Initial implementation
+-    Tightly coupled UI and logic
+-    Limited scalability
+![Dictionary V1](images/DictionaryV1.png)
+
+------------------------------------------------------------------------
+
 ## Features
 
 -   Add and update words with frequency metadata\
@@ -28,30 +36,31 @@ scalable software design.
 ------------------------------------------------------------------------
 
 ###  Search Word: 
--    Finds the word placed in the search box to the bottom left.
--    If a prefix is placed the word or words with that prefix will appear.
+-    Finds the word entered in the search box
+-    Prefix-based filtering supported
 ![Search Word](images/searchWordV2.png)
 
 ---
 
 ###  Add Word
--    Will clear the textField to the right.
--    Requires user to input information about the word.
--    Requires the Save button to be pressed to update the dictionary.
+-    Clears the detail fields
+-    Allows user input
+-    Requires Save button to persist
 ![Add Word](images/addWordV2.png)
 
 ---
 
 ###  Delete Word
--    Hover over the word you want to delete.
+-    Select a word
 -    press the delete button.
+-    Confirmation dialog prevents accidental removal
 ![Delete Word](images/deleteWordV2.png)
 
 ---
 
 ###  Import Dictionary
--    Finds the file by opening up the user Filepath.
--    Each line must contain exactly 5 fields seperated by |
+-    Opens system file chooser
+-    Each line must contain exactly 5 fields separated by |
 -    example: word|pronunciation|definition|example|syn1, syn2, syn3
 -    
 ![Import](images/importV2.png)
@@ -59,23 +68,19 @@ scalable software design.
 ---
 
 ###  Top 5 Most Searched
--    Displays the 5 most searched words in the dictionary
--    A search counts as a top level search or click on the textField
+-    Displays five most frequently accessed words
+-    Counts both search queries and list selections
 ![History](images/historyV2.png)
 
 ---
 
 ###  Exit Confirmation
--    Displays and exit warning and confirmation.
+-    Prompts confirmation before closing.
+-    Prevents accidental termination
 ![Exit](images/exitV2.png)
 
 ---
 
-### 🕰 Version 1 (Original Prototype)
--    The first version of this project
--    File structured unorganized and not following object orientation
-![Dictionary V1](images/DictionaryV1.png)
-```
 
 ------------------------------------------------------------------------
 
