@@ -1,211 +1,173 @@
-Dictionary Application (Java Swing)
+# Dictionary Application (Java Swing)
 
-A desktop Dictionary Application built in Java using Swing.
-This project demonstrates data structure selection, MVC architecture, event-driven programming, validation logic, and scalable application design.
- 
-Project Overview
+![Java](https://img.shields.io/badge/Java-17+-blue)
+![Swing](https://img.shields.io/badge/GUI-Swing-orange)
+![Architecture](https://img.shields.io/badge/Architecture-MVC-green)
+![Testing](https://img.shields.io/badge/Tested_with-JUnit5-red)
+![Status](https://img.shields.io/badge/Status-Active-success)
 
-This application allows users to:
+A desktop **Dictionary Application** built with **Java and Swing**,
+designed using a clean MVC architecture.\
+This project demonstrates strong fundamentals in data structures,
+separation of concerns, event-driven programming, validation logic, and
+scalable software design.
 
-Add and update words with metadata
+------------------------------------------------------------------------
 
-Search for words (case-insensitive)
+## Features
 
-Track and display word frequency
+-   Add and update words with frequency metadata\
+-   Case-insensitive word search\
+-   Remove dictionary entries\
+-   Prefix-based filtering\
+-   Sorted word display\
+-   Import dictionary data from file\
+-   Export dictionary data to file\
+-   Input validation and controlled UI editing state
 
-Remove dictionary entries
+------------------------------------------------------------------------
 
-Import and export dictionary data
+## Screenshots
 
-Filter words by prefix
+> Add application screenshots here
 
-Manage dictionary state using a structured MVC architecture
+    /screenshots/app-main.png
+    /screenshots/search-example.png
 
-The project evolved from a functional prototype (Version 1) to a properly layered and testable architecture (Version 2).
+Example:
 
-Architecture (Version 2)
+``` markdown
+![Main UI](screenshots/app-main.png)
+```
 
-The application follows a clean MVC-inspired structure:
+------------------------------------------------------------------------
 
-1️⃣ View – DictionaryPanel
+## Architecture
 
-Contains all Swing UI components
+This application follows an MVC-inspired layered design to ensure
+maintainability and testability.
 
-Displays dictionary data
+### View -- `DictionaryPanel`
 
-Exposes listener hooks
+-   Contains all Swing UI components\
+-   Responsible only for displaying data\
+-   Exposes listener hooks for user interaction\
+-   No business logic
 
-Contains no business logic
+### Controller -- `DictionaryController`
 
-2️⃣ Controller – DictionaryController
+-   Handles user events\
+-   Performs validation\
+-   Connects the View to the Service\
+-   Manages application state transitions
 
-Handles user interactions
+### Service -- `DictionaryService`
 
-Performs input validation
+-   Implements core dictionary logic\
+-   Uses `HashMap<String, DictionaryEntry>` for storage\
+-   Handles add, update, delete, search, sort, and prefix filtering\
+-   Fully independent from UI
 
-Connects UI to service layer
+### Data Flow
 
-Manages application state transitions
+    User Action
+         ↓
+    Controller
+         ↓
+    DictionaryService
+         ↓
+    Controller
+         ↓
+    View Update
 
-3️⃣ Service – DictionaryService
+------------------------------------------------------------------------
 
-Core dictionary logic
+## 📚 Data Structure Design
 
-Stores data in a HashMap
+The dictionary is implemented using:
 
-Implements add, delete, search, sort, and prefix filtering
-
-Independent of UI
-
-
-User Interaction
-        ↓
-Controller
-        ↓
-DictionaryService (business logic)
-        ↓
-Controller
-        ↓
-View Update
-
-This separation improves:
-
-Maintainability
-
-Testability
-
-Scalability
-
-Code clarity
-
-Data Structure Design
-
-The dictionary is implemented as:
-
+``` java
 Map<String, DictionaryEntry>
-Why HashMap?
+```
 
-O(1) average lookup time
+### Why `HashMap`?
 
-Efficient for frequent searches
+-   O(1) average lookup time\
+-   Efficient for frequent searches\
+-   Ideal for key-value dictionary modeling\
+-   Keys normalized to lowercase for case-insensitive behavior
 
-Ideal for key-value dictionary model
+------------------------------------------------------------------------
 
-Keys normalized to lowercase for case-insensitive search
+## Version Evolution
 
-Version 1 Features
+### Version 1 -- Functional Prototype
 
-Version 1 focused on core functionality:
+-   Basic dictionary operations\
+-   Import/export support\
+-   UI and logic tightly coupled
 
-Add word with frequency
+### Version 2 -- Refactored Architecture
 
-Find word
+-   Proper MVC separation\
+-   Listener-based event handling\
+-   `Optional` for safe null handling\
+-   Service-layer unit testability\
+-   Cleaner validation and state management
 
-Remove word
+The refactor significantly improved scalability, readability, and
+maintainability.
 
-Display frequent words
+------------------------------------------------------------------------
 
-Import dictionary from file
+## Testing
 
-Export dictionary to file
+### Unit Testing (JUnit 5)
 
-Basic validation
+`DictionaryService` is independently testable:
 
-Limitations:
+-   Case-insensitive lookup\
+-   Add/update behavior\
+-   Deletion logic\
+-   Prefix filtering\
+-   Sorting correctness
 
-UI and logic tightly coupled
+------------------------------------------------------------------------
 
-Harder to test independently
+## How to Run
 
-Limited scalability
+1.  Clone the repository
+2.  Open the project in IntelliJ IDEA (or preferred IDE)
+3.  Ensure JDK 17+ is configured
+4.  Run the main application class
 
-Version 2 Improvements
+------------------------------------------------------------------------
 
-Version 2 refactored the system to introduce:
+## Technologies Used
 
-MVC separation
+-   Java\
+-   Swing\
+-   HashMap\
+-   Optional\
+-   JUnit 5\
+-   IntelliJ IDEA
 
-Listener hook architecture
+------------------------------------------------------------------------
 
-Optional for safe null handling
+## Engineering Highlights
 
-Controlled UI editing state
+-   Designed using MVC separation of concerns\
+-   Optimized search performance with `HashMap`\
+-   Defensive programming using `Optional`\
+-   Structured validation before persistence\
+-   Refactored from prototype to scalable architecture
 
-Structured validation logic
+------------------------------------------------------------------------
 
-Service-layer testability
+## What This Project Demonstrates
 
-Cleaner event handling
-
-🧪 Testing Strategy
-Unit Testing
-
-DictionaryService is independently testable using JUnit:
-
-Case-insensitive lookup
-
-Add/update behavior
-
-Deletion logic
-
-Prefix filtering
-
-Sorting correctness
-
-Manual Testing
-
-Duplicate word handling
-
-Invalid frequency validation
-
-Edge-case user input
-
-File path validation
-
-UI state transitions
-
-🛠 Technologies Used
-
-Java
-
-Swing (GUI framework)
-
-HashMap (Data structure)
-
-Optional (Safe null handling)
-
-JUnit 5 (Unit testing)
-
-IntelliJ IDEA
-
-Key Engineering Decisions
-
-Used HashMap for performance optimization
-
-Implemented case-insensitive keys via normalization
-
-Introduced MVC separation to avoid UI-business logic coupling
-
-Wrapped service lookups in Optional to eliminate null risks
-
-Designed UI with event-driven hooks to decouple controller logic
-
-Enabled structured validation before data persistence
-
-Learning Outcomes
-
-This project demonstrates:
-
-Data structure selection based on performance requirements
-
-Event-driven programming in Swing
-
-Clean separation of concerns (MVC pattern)
-
-Defensive programming with Optional
-
-Application-level validation strategies
-
-Refactoring from prototype to scalable architecture
-
-Designing for testability
+-   Strong understanding of core data structures\
+-   Clean architectural design\
+-   Event-driven desktop application development\
+-   Refactoring for maintainability\
+-   Designing for testability
