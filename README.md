@@ -14,14 +14,6 @@ scalable software design.
 
 ------------------------------------------------------------------------
 
-### 🕰 Version 1 (Original Prototype)
--    Initial implementation
--    Tightly coupled UI and logic
--    Limited scalability
-![Dictionary V1](images/DictionaryV1.png)
-
-------------------------------------------------------------------------
-
 ## Features
 
 -   Add and update words with frequency metadata\
@@ -34,6 +26,13 @@ scalable software design.
 -   Input validation and controlled UI editing state
 
 ------------------------------------------------------------------------
+### Version 1 (Original Prototype)
+-    Initial implementation
+-    Tightly coupled UI and logic
+-    Limited scalability
+![Dictionary V1](images/DictionaryV1.png)
+
+---
 
 ###  Search Word: 
 -    Finds the word entered in the search box
