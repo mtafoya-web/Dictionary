@@ -6,7 +6,7 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class dictionary {
+public class DictionaryPanel {
 
     private JPanel app;
     //North Panel
@@ -14,7 +14,7 @@ public class dictionary {
     private JButton btn_find;
     private JButton btn_add;
     private JButton btn_delete;
-    private static JLabel searchWord;
+    private  JLabel searchWord;
     private JButton btn_exit;
 
     //Center panel
@@ -58,6 +58,8 @@ public class dictionary {
     private JButton btn_freq3;
     private JButton btn_freq1;
     private JLabel count;
+    private JButton btn_export;
+    private JButton btn_import;
 
     //Expose root panel so JFrame can show it
     public JPanel getRoot(){return app;}
@@ -73,12 +75,16 @@ public class dictionary {
     public void  onClear(ActionListener l) { btn_clear.addActionListener(l); }
     public void  onSave(ActionListener l) { btn_save.addActionListener(l); }
 
-    public void  onFreq1(ActionListener l) { btn_freq1.addActionListener(l); }
-    public void  onFreq2(ActionListener l) { btn_freq2.addActionListener(l); }
-    public void  onFreq3(ActionListener l) { btn_freq3.addActionListener(l); }
-    public void  onFreq4(ActionListener l) { btn_freq4.addActionListener(l); }
-    public void  onFreq5(ActionListener l) { btn_freq5.addActionListener(l); }
+    public void onFreq1(ActionListener l) {btn_freq1.addActionListener(l);}
+    public void onFreq2(ActionListener l) {btn_freq2.addActionListener(l);}
+    public void onFreq3(ActionListener l) {btn_freq3.addActionListener(l);}
+    public void onFreq4(ActionListener l) {btn_freq4.addActionListener(l);}
+    public void onFreq5(ActionListener l) {btn_freq5.addActionListener(l);}
     public void  onClearHist(ActionListener l) { btn_clearHistory.addActionListener(l); }
+
+    public void onImport(ActionListener l){btn_import.addActionListener(l);}
+    public void onExport(ActionListener l){btn_export.addActionListener(l);}
+
 
     //Jlist Selection
     public void onWordSelection(ListSelectionListener l){
@@ -100,8 +106,8 @@ public class dictionary {
         DefaultListModel<String> model = new DefaultListModel<>();
         for(String word: words){
             model.addElement(word);
-            lstWords.setModel(model);
         }
+        lstWords.setModel(model);
     }
     public void selectWordInList(String word){
         ListModel<String> model = lstWords.getModel();
@@ -120,7 +126,26 @@ public class dictionary {
         examTextArea.setText(e.getExample());
         synTextArea.setText(String.join(", ",e.getSyn()));
     }
+    public void setTop5Buttons(List<String> topWords){
+        JButton[] btns = { btn_freq1, btn_freq2, btn_freq3, btn_freq4, btn_freq5 };
 
+        for (int i = 0; i < btns.length; i++) {
+            if (topWords != null && i < topWords.size()) {
+                btns[i].setText(topWords.get(i));
+                btns[i].setEnabled(true);
+            } else {
+                btns[i].setText("-");
+                btns[i].setEnabled(false);
+            }
+        }
+    }
+    public String getTopWordFromButton(int index) {
+        JButton[] btns = { btn_freq1, btn_freq2, btn_freq3, btn_freq4, btn_freq5 };
+        if (index < 0 || index >= btns.length) return null;
+        String text = btns[index].getText();
+        if (text == null || text.isBlank() || text.equals("-")) return null;
+        return text.trim();
+    }
     public dictionaryEntry getDetailsFromFields(){
        List<String> syns = List.of(synTextArea.getText().split("\\s*,\\s*"));
         return new dictionaryEntry(
@@ -138,7 +163,6 @@ public class dictionary {
         examTextArea.setText("");
         synTextArea.setText("");
     }
-
     //Method to dictate if user can edit the fields
     public void setEditing(boolean editing){
         wordText.setEditable(editing);
@@ -156,5 +180,34 @@ public class dictionary {
     //method to output an error message
     public void showError(String message) {
         JOptionPane.showMessageDialog(app, message, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    //method to confirm exit
+    public boolean confirmExit() {
+        return JOptionPane.showConfirmDialog(
+                getRoot(),
+                "Exit the application?",
+                "Confirm Exit",
+                JOptionPane.YES_NO_OPTION
+        ) == JOptionPane.YES_OPTION;
+    }
+    //Method to close the window
+    public void closeWindow() {
+        // closes the top-level window that contains this panel
+        java.awt.Window w = SwingUtilities.getWindowAncestor(getRoot());
+        if (w != null) w.dispose();
+    }
+    public java.io.File chooseExportFile() {
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Export Dictionary");
+
+        int result = chooser.showSaveDialog(getRoot());
+        if (result == JFileChooser.APPROVE_OPTION) {
+            return chooser.getSelectedFile();
+        }
+        return null;
+    }
+
+    public void clearFilter() {
+        filter.setText("");
     }
 }
