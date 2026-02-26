@@ -6,14 +6,12 @@ import java.util.List;
 
 /**
  * Model class representing a dictionary entry.
- *
  * Stores all metadata for a word:
  * - word text
  * - pronunciation
  * - definition
  * - example usage
  * - up to 4 synonyms
- *
  * This class is immutable (all fields are final) and defensively copies
  * mutable data (synonym list) to protect internal state.
  */
